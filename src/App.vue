@@ -1,6 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import GeniousSwitcher from './components/GeniousSwitcher.vue'
+import {ref} from 'vue';
+
+const switcherValue = ref(0);
+
 </script>
 
 <template>
@@ -13,11 +18,28 @@ import TheWelcome from './components/TheWelcome.vue'
   </header>
 
   <main>
-    <TheWelcome />
+    <GeniousSwitcher v-model="switcherValue">
+      <div class="switcher-title">Switcher. Try!</div>
+      <div class="switcher-value">value: {{ switcherValue }}</div>
+    </GeniousSwitcher>
   </main>
 </template>
 
 <style scoped>
+
+.switcher-title{
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 6px;
+}
+
+.switcher-value{
+  font-size: 13px;
+  line-height: 13px;
+  color: #555;
+}
+
 header {
   line-height: 1.5;
 }
